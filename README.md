@@ -18,9 +18,21 @@ A lightweight, high-performance web radio player for your Plex Media Server, wri
 
 ## Prerequisites
 
-- Rust (Stable toolchain recommended)
+- Rust (Stable toolchain recommended) or Docker
 - A running Plex Media Server
 - A Plex Token (`X-Plex-Token`)
+
+## X-Plex-Token
+
+You need a Plex authentication token. Here's how to find it:
+
+1. Log into Plex Web App
+2. Play any media
+3. Click the ⓘ (info) icon
+4. Click "View XML"
+5. Look for `X-Plex-Token` in the URL
+
+More info: https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/
 
 ## Setup & Installation
 
@@ -48,6 +60,18 @@ A lightweight, high-performance web radio player for your Plex Media Server, wri
 
 4. **Access the Radio**
    Open `http://localhost:3000` in your web browser.
+
+## Running with Docker
+
+This project includes a `Dockerfile` and `docker-compose.yml` for easy deployment.
+
+1. **Configure Environment**
+   Ensure your `.env` file is created as described above.
+
+2. **Start the Service**
+   ```bash
+   docker-compose up -d --build
+   ```
 
 ## Configuration Reference
 

@@ -1,0 +1,19 @@
+services:
+  plex-radio:
+    build: .
+    container_name: plex-radio
+    ports:
+      - "3000:3000"
+    environment:
+      - PLEX_URL=${PLEX_URL}
+      - PLEX_TOKEN=${PLEX_TOKEN}
+      - PORT=3000
+      - PLEX_BITRATE=${PLEX_BITRATE:-320}
+      - PLEX_AUDIO_BOOST=${PLEX_AUDIO_BOOST:-100}
+      - PLEX_PASSTHROUGH=${PLEX_PASSTHROUGH:-true} # Set to false to enable transcoding
+      # Uncomment if you need to force a specific library ID
+      # - PLEX_SECTION_ID=${PLEX_SECTION_ID}
+    restart: unless-stopped
+    # Load variables from .env file automatically
+    env_file:
+      - .env
